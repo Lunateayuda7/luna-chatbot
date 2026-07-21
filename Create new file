@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna IA</title>
+
+<style>
+body{
+background:#0f172a;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.chat{
+width:400px;
+max-width:95%;
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+h1{
+text-align:center;
+color:#2563eb;
+}
+
+#mensajes{
+height:300px;
+overflow-y:auto;
+border:1px solid #ddd;
+padding:10px;
+margin-bottom:10px;
+}
+
+input{
+width:75%;
+padding:10px;
+}
+
+button{
+padding:10px;
+background:#2563eb;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="chat">
+
+<h1>💙 Luna IA</h1>
+
+<div id="mensajes">
+<b>Luna:</b> Hola 😊 ¿Cómo te sientes hoy?
+</div>
+
+<input id="texto" placeholder="Escribe aquí...">
+
+<button onclick="enviar()">
+Enviar
+</button>
+
+</div>
+
+<script>
+
+function enviar(){
+
+let texto=document.getElementById("texto").value;
+
+if(texto=="") return;
+
+let chat=document.getElementById("mensajes");
+
+chat.innerHTML+="<br><br><b>Tú:</b> "+texto;
+
+chat.innerHTML+="<br><b>Luna:</b> Gracias por contarme eso ❤️ Estoy aquí para escucharte.";
+
+document.getElementById("texto").value="";
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
