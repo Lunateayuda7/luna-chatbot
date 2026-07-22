@@ -1,2 +1,127 @@
-# luna-chatbot
-mi chatbot de ayuda
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Chatbot</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:#f4f4f4;
+    }
+
+    .chat{
+      width:90%;
+      max-width:500px;
+      margin:40px auto;
+      background:#fff;
+      border-radius:15px;
+      box-shadow:0 0 10px rgba(0,0,0,.2);
+      overflow:hidden;
+    }
+
+    .titulo{
+      background:#7b2cbf;
+      color:white;
+      padding:15px;
+      text-align:center;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    #mensajes{
+      height:400px;
+      padding:15px;
+      overflow-y:auto;
+    }
+
+    .bot{
+      background:#eee;
+      padding:10px;
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+
+    .usuario{
+      background:#7b2cbf;
+      color:white;
+      padding:10px;
+      border-radius:10px;
+      margin-bottom:10px;
+      text-align:right;
+    }
+
+    .abajo{
+      display:flex;
+      border-top:1px solid #ddd;
+    }
+
+    input{
+      flex:1;
+      padding:15px;
+      border:none;
+      outline:none;
+    }
+
+    button{
+      padding:15px;
+      background:#7b2cbf;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="chat">
+  <div class="titulo">🌙 Luna Chatbot</div>
+
+  <div id="mensajes">
+    <div class="bot">¡Hola! Soy Luna. ¿En qué puedo ayudarte?</div>
+  </div>
+
+  <div class="abajo">
+    <input id="texto" placeholder="Escribe aquí...">
+    <button onclick="enviar()">Enviar</button>
+  </div>
+</div>
+
+<script>
+
+function enviar(){
+
+let texto=document.getElementById("texto").value;
+
+if(texto=="") return;
+
+document.getElementById("mensajes").innerHTML+=
+"<div class='usuario'>"+texto+"</div>";
+
+let respuesta="Lo siento, todavía estoy aprendiendo.";
+
+if(texto.toLowerCase().includes("hola")){
+respuesta="¡Hola! ¿Cómo estás?";
+}
+
+if(texto.toLowerCase().includes("adiós")){
+respuesta="¡Hasta luego!";
+}
+
+setTimeout(()=>{
+document.getElementById("mensajes").innerHTML+=
+"<div class='bot'>"+respuesta+"</div>";
+},500);
+
+document.getElementById("texto").value="";
+
+}
+
+</script>
+
+</body>
+</html>
